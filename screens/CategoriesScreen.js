@@ -11,6 +11,12 @@ const CategoriesScreen = (props) => {
           props.navigation.navigate({ routeName: 'CategoryMeals' });
         }}
       />
+      <Button
+        title='Replace this screen with Category Meals Screen in stack'
+        onPress={() => {
+          props.navigation.replace({ routeName: 'CategoryMeals' }); // replace screen on top of the stack with no option to go back
+        }}
+      />
     </View>
   );
 };

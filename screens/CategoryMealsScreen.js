@@ -11,6 +11,12 @@ const CategoryMealsScreen = (props) => {
           props.navigation.navigate('MealDetail');
         }}
       />
+      <Button
+        title='Go Back to Categories Screen'
+        onPress={() => {
+          props.navigation.goBack(); // return to previous screen based on stack
+        }}
+      />
     </View>
   );
 };
