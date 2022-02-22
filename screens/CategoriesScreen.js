@@ -8,26 +8,24 @@ import {
 } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
+import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoriesScreen = (props) => {
   // it will receive item data and return react component
   const renderGridItem = (itemData) => {
     return (
-      <TouchableOpacity
-        onPress={() => {
+      <CategoryGridTile
+        title={itemData.item.title} // get title from itemData I got in renderItem in FlatList
+        color={itemData.item.color}
+        onSelect={() => {
           props.navigation.navigate({
             routeName: 'CategoryMeals',
             params: {
-              categoryId: itemData.item.id, // we will use it to load specific screen when clicking on item
+              categoryId: itemData.item.id, // I will use it to load specific screen when clicking on itemr
             },
           });
         }}
-        style={styles.gridItem}
-      >
-        <View>
-          <Text>{itemData.item.title}</Text>
-        </View>
-      </TouchableOpacity>
+      />
     );
   };
 
@@ -41,17 +39,6 @@ CategoriesScreen.navigationOptions = {
   headerTitle: 'Meal Categories',
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  gridItem: {
-    flex: 1,
-    margin: 15,
-    height: 150,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default CategoriesScreen;
