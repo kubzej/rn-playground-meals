@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Platform } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
-import Colors from '../constants/Colors';
 
 const CategoryMealsScreen = (props) => {
   const catId = props.navigation.getParam('categoryId'); // extract parameter I will receive when opening screen, so categoryId
-
   const selectedCategory = CATEGORIES.find((cat) => cat.id === catId); // it gives me category by catId I received
 
   return (
@@ -35,12 +33,7 @@ CategoryMealsScreen.navigationOptions = (navigationData) => {
 
   return {
     headerTitle: selectedCategory.title,
-    headerStyle: {
-      backgroundColor:
-        Platform.OS === 'android' ? Colors.primaryColor : 'WHITE',
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor, // color of text
-  }; // return object with navigation options means style header as I want
+  }; // return object with navigation options means change header title
 };
 
 const styles = StyleSheet.create({
