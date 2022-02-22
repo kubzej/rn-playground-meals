@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Platform } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
+import Colors from '../constants/Colors';
 
 const CategoryMealsScreen = (props) => {
   const catId = props.navigation.getParam('categoryId'); // extract parameter I will receive when opening screen, so categoryId
@@ -26,6 +27,20 @@ const CategoryMealsScreen = (props) => {
       />
     </View>
   );
+};
+
+CategoryMealsScreen.navigationOptions = (navigationData) => {
+  const catId = navigationData.navigation.getParam('categoryId'); // get category data same is inside CategoryMealsScreen obj which is not accessible from here
+  const selectedCategory = CATEGORIES.find((cat) => cat.id === catId); // it gives me category by catId I received
+
+  return {
+    headerTitle: selectedCategory.title,
+    headerStyle: {
+      backgroundColor:
+        Platform.OS === 'android' ? Colors.primaryColor : 'WHITE',
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor, // color of text
+  }; // return object with navigation options means style header as I want
 };
 
 const styles = StyleSheet.create({
