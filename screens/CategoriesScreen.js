@@ -6,7 +6,10 @@ import { CATEGORIES } from '../data/dummy-data';
 function CategoriesScreen({ navigation }) {
   function renderCategoryItem(itemData) {
     function pressHandler() {
-      navigation.navigate('MealsOverview');
+      navigation.navigate('MealsOverview', {
+        categoryId: itemData.item.id,
+      });
+      console.log(itemData.item.id);
     }
 
     return (
