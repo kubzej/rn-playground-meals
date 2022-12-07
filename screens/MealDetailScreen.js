@@ -1,5 +1,5 @@
 import { Text, View, Image } from 'react-native';
-import MealDetails from '../components/mealDetails';
+import MealDetails from '../components/MealDetails';
 
 import { MEALS } from '../data/dummy-data';
 
