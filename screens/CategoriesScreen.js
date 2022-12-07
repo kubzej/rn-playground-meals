@@ -9,7 +9,6 @@ function CategoriesScreen({ navigation }) {
       navigation.navigate('MealsOverview', {
         categoryId: itemData.item.id,
       });
-      console.log(itemData.item.id);
     }
 
     return (
