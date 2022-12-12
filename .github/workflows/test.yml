@@ -1,0 +1,17 @@
+name: Test
+
+on: [push]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: |
+          echo "Running yarn install"
+          yarn install
+          echo "Running yarn lint"
+          npx eslint .
